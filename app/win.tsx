@@ -1,28 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { router } from 'expo-router';
 
-export default function TelaFimDeJogo() {
+export default function TelaInicial() {
   return (
     <ImageBackground
-          source={require('@/assets/images/backgroundtelainicio.jpg')}
-          style={styles.background}
-          resizeMode="cover"
+      source={require('@/assets/images/fundovoceganhou2.jpg')}
+      style={styles.background}
+      resizeMode="cover"
     >
       <View style={styles.container}>
         <View style={styles.box}>
-          <Text style={styles.titulo}>P.A.S.T.E.L Venceu dessa vez...</Text>
+          <Text style={styles.titulo}>Finalmente conseguimos!</Text>
           <Text style={styles.descricao}>
-            Infelizmente perdemos conexão com a nave do capitão... Central, prepare outra nave e envie outro capitão para a missão. Desta vez, não podemos falhar!
+            Você derrotou o P.A.S.T.E.L e salvou a Terra! Agradecemos por sua coragem e habilidade. A missão foi um sucesso graças a você!
           </Text>
 
           <TouchableOpacity
             style={styles.botao}
+            onPress={() => {
+              router.replace("/")
+            }}
           >
             <Text style={styles.textoBotao}>Voltar para o Início</Text>
           </TouchableOpacity>
         </View>
       </View>
-      </ImageBackground>
+    </ImageBackground>
   );
 }
 
@@ -38,12 +42,12 @@ const styles = StyleSheet.create({
   box: {
     width: '100%',
     height: '60%',
-    backgroundColor: 'rgba(0, 0, 0, 0.85)',
+    backgroundColor: 'rgba(0, 0, 0, 0.79)',
     borderWidth: 2,
-    borderColor: '#ff0000ff',
+    borderColor: '#04ff00ff',
     borderRadius: 16,
     padding: 25,
-    shadowColor: '#ff2525ff',
+    shadowColor: '#26ff00ff',
     shadowOpacity: 0.9,
     shadowRadius: 20,
     shadowOffset: { width: 0, height: 0 },
@@ -54,7 +58,7 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#ff0000ff',
+    color: '#04ff00ff',
     textAlign: 'center',
     marginTop: 10,
   },
@@ -70,12 +74,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   botao: {
-    backgroundColor: '#00ccff',
+    backgroundColor: '#04ff00ff',
     borderRadius: 10,
     paddingVertical: 14,
     paddingHorizontal: 30,
     marginBottom: 10,
-    shadowColor: '#00ffff',
+    shadowColor: '#07d303ff',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.9,
     shadowRadius: 12,
@@ -84,6 +88,6 @@ const styles = StyleSheet.create({
   textoBotao: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#fff',
   },
 });
